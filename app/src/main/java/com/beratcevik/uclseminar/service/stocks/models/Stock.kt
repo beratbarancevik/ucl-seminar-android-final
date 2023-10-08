@@ -1,7 +1,7 @@
 package com.beratcevik.uclseminar.service.stocks.models
 
 data class Stock(
-    val id: String = "",
+    var id: String = "",
     val title: String = "",
     val symbol: String = "",
     val price: Double = 0.0,

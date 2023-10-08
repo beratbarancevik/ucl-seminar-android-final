@@ -23,7 +23,13 @@ class StockService(
 
                 snapshot?.let {
                     completionHandler.invoke(
-                        it.documents.mapNotNull { document -> document.toObject(Stock::class.java) }
+                        it.documents.mapNotNull { document ->
+                            val model = document.toObject(Stock::class.java)
+                            model?.let {
+                                model.id = document.id
+                            }
+                            model
+                        }
                     )
                 }
             }

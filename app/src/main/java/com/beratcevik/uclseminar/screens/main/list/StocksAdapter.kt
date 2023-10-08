@@ -1,12 +1,8 @@
 package com.beratcevik.uclseminar.screens.main.list
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.beratcevik.uclseminar.R
 import com.beratcevik.uclseminar.databinding.StockRowBinding
 import com.beratcevik.uclseminar.service.stocks.models.Stock
 

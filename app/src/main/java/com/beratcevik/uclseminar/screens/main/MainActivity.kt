@@ -1,5 +1,6 @@
 package com.beratcevik.uclseminar.screens.main
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -7,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.beratcevik.uclseminar.R
 import com.beratcevik.uclseminar.databinding.ActivityMainBinding
+import com.beratcevik.uclseminar.screens.detail.DetailActivity
 import com.beratcevik.uclseminar.screens.main.list.StocksAdapter
 import com.beratcevik.uclseminar.service.stocks.StockService
 import com.google.firebase.firestore.ktx.firestore
@@ -26,7 +28,9 @@ class MainActivity : AppCompatActivity() {
 //        setSupportActionBar(binding.toolbar)
 
         val adapter = StocksAdapter(emptyList()) {
-
+            val myIntent = Intent(this, DetailActivity::class.java)
+            myIntent.putExtra("stockID", it.id)
+            this.startActivity(myIntent)
         }
         binding.recyclerView.layoutManager = LinearLayoutManager(this)
         binding.recyclerView.adapter = adapter
