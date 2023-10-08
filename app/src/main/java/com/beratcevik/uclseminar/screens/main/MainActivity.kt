@@ -4,8 +4,10 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.beratcevik.uclseminar.R
 import com.beratcevik.uclseminar.databinding.ActivityMainBinding
+import com.beratcevik.uclseminar.screens.main.list.StocksAdapter
 import com.beratcevik.uclseminar.service.stocks.StockService
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
@@ -21,10 +23,17 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        setSupportActionBar(binding.toolbar)
+//        setSupportActionBar(binding.toolbar)
+
+        val adapter = StocksAdapter(emptyList()) {
+
+        }
+        binding.recyclerView.layoutManager = LinearLayoutManager(this)
+        binding.recyclerView.adapter = adapter
 
         viewModel.bind {
-
+            adapter.stocks = it.rows
+            adapter.notifyDataSetChanged()
         }
     }
 

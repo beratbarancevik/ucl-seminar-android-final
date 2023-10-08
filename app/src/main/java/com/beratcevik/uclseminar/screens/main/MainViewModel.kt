@@ -8,13 +8,7 @@ class MainViewModel(
 
     fun bind(viewStateHandler: (MainViewState) -> Unit) {
         stockService.getStocks {
-            viewStateHandler.invoke(
-                MainViewState(
-                    rows = listOf(
-                        "JP Morgan"
-                    )
-                )
-            )
+            viewStateHandler.invoke(MainViewState(rows = it))
         }
     }
 
