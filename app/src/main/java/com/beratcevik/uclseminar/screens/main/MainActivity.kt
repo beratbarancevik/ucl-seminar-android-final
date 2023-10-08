@@ -7,7 +7,6 @@ import androidx.appcompat.app.AppCompatActivity
 import com.beratcevik.uclseminar.R
 import com.beratcevik.uclseminar.databinding.ActivityMainBinding
 import com.beratcevik.uclseminar.service.stocks.StockService
-import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
@@ -24,7 +23,9 @@ class MainActivity : AppCompatActivity() {
 
         setSupportActionBar(binding.toolbar)
 
-        viewModel.bind()
+        viewModel.bind {
+
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

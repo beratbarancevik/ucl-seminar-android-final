@@ -18,6 +18,8 @@ class DetailActivity : AppCompatActivity() {
         binding = ActivityDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        viewModel.bind()
+        viewModel.bind {
+
+        }
     }
 }
