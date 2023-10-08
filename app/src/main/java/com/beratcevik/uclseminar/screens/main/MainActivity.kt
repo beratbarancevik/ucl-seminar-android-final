@@ -1,5 +1,6 @@
 package com.beratcevik.uclseminar.screens.main
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
@@ -19,13 +20,13 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private val viewModel = MainViewModel(StockService(Firebase.firestore))
 
+    @SuppressLint("NotifyDataSetChanged")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         binding = ActivityMainBinding.inflate(layoutInflater)
+        setSupportActionBar(binding.toolbar)
         setContentView(binding.root)
-
-//        setSupportActionBar(binding.toolbar)
 
         val adapter = StocksAdapter(emptyList()) {
             val myIntent = Intent(this, DetailActivity::class.java)
@@ -48,7 +49,10 @@ class MainActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
-            R.id.action_settings -> true
+            R.id.action_upload_stocks -> {
+                viewModel.uploadAction()
+                true
+            }
             else -> super.onOptionsItemSelected(item)
         }
     }

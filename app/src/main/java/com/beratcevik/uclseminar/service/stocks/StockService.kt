@@ -64,7 +64,7 @@ class StockService(
     override fun uploadStocks() {
         val stocks = listOf(
             Stock(
-                id = "1",
+                id = "id-1",
                 title = "Tesla",
                 symbol = "TSLA",
                 price = 120.6,
@@ -72,7 +72,7 @@ class StockService(
                 isFavorite = false
             ),
             Stock(
-                id = "2",
+                id = "id-2",
                 title = "Apple",
                 symbol = "AAPL",
                 price = 120.6,
@@ -80,7 +80,7 @@ class StockService(
                 isFavorite = false
             ),
             Stock(
-                id = "3",
+                id = "id-3",
                 title = "Meta",
                 symbol = "META",
                 price = 120.6,
@@ -88,6 +88,8 @@ class StockService(
                 isFavorite = false
             )
         )
-        stocks.forEach { db.collection("stocks").add(it) }
+        stocks.forEach {
+            db.collection("stocks").document(it.id).set(it, SetOptions.merge())
+        }
     }
 }
