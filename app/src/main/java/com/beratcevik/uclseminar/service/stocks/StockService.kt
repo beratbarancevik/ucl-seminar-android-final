@@ -1,15 +1,15 @@
 package com.beratcevik.uclseminar.service.stocks
 
 import android.util.Log
+import com.beratcevik.uclseminar.service.stocks.models.Stock
 import com.google.firebase.firestore.FirebaseFirestore
 
 class StockService(
     private val db: FirebaseFirestore
 ) : StocksServiceI {
 
-    override fun getStocks() {
-        db.collection("stocks")
-            .get()
+    override fun getStocks(completionHandler: (List<Stock>) -> Unit) {
+        db.collection("stocks").get()
             .addOnSuccessListener { result ->
 
             }
@@ -22,9 +22,8 @@ class StockService(
             }
     }
 
-    override fun getStockDetails(stockID: String) {
-        db.collection("stocks/$stockID")
-            .get()
+    override fun getStockDetails(stockID: String, completionHandler: (Stock) -> Unit) {
+        db.collection("stocks").document(stockID).get()
             .addOnSuccessListener { result ->
 
             }
@@ -35,5 +34,13 @@ class StockService(
                     exception
                 )
             }
+    }
+
+    override fun updateStockDetail(stockID: String, isFavorite: Boolean) {
+//        db.collection("stocks").document(stockID).set()
+    }
+
+    override fun uploadStocks() {
+//        db.collection("stocks").add()
     }
 }

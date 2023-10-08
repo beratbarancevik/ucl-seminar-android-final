@@ -7,6 +7,8 @@ class MainViewModel(
 ) {
 
     fun bind() {
-        stockService.getStocks()
+        stockService.getStocks {
+
+        }
     }
 }
