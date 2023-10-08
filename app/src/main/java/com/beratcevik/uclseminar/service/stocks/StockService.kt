@@ -75,7 +75,7 @@ class StockService(
                 id = "id-2",
                 title = "Apple",
                 symbol = "AAPL",
-                price = 120.6,
+                price = 45.3,
                 logoUrl = "https://i.pinimg.com/474x/b0/d2/6e/b0d26e8122dffa8a51081f7f814581d7.jpg",
                 favorite = false
             ),
@@ -83,7 +83,7 @@ class StockService(
                 id = "id-3",
                 title = "Meta",
                 symbol = "META",
-                price = 120.6,
+                price = 935.2,
                 logoUrl = "https://img.freepik.com/premium-vector/meta-company-logo_265339-667.jpg",
                 favorite = false
             )
