@@ -6,5 +6,5 @@ data class Stock(
     val symbol: String = "",
     val price: Double = 0.0,
     val logoUrl: String = "",
-    val isFavorite: Boolean = false
+    val favorite: Boolean = false
 )

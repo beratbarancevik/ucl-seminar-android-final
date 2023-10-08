@@ -1,12 +1,15 @@
 package com.beratcevik.uclseminar.screens.main.list
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.beratcevik.uclseminar.R
 import com.beratcevik.uclseminar.databinding.StockRowBinding
 import com.beratcevik.uclseminar.service.stocks.models.Stock
 
 class StocksAdapter(
+    private val context: Context,
     var stocks: List<Stock>,
     private val onRowTap: (Stock) -> Unit
 ) : RecyclerView.Adapter<StocksAdapter.ViewHolder>() {
@@ -25,10 +28,12 @@ class StocksAdapter(
 
         fun bind(book: Stock) {
             binding.textView.text = book.title
-//            Glide
-//                .with(binding.imageView.context)
-//                .load(book.thumbnailUrl)
-//                .into(binding.thumbnailImageView)
+            val image = if (book.favorite) {
+                context.resources.getDrawable(R.drawable.baseline_star_24)
+            } else {
+                context.resources.getDrawable(R.drawable.baseline_star_border_24)
+            }
+            binding.imageView.background = image
         }
     }
 

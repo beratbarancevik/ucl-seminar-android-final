@@ -7,7 +7,6 @@ import com.beratcevik.uclseminar.service.stocks.StockService
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
-
 class DetailActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityDetailBinding
@@ -24,6 +23,10 @@ class DetailActivity : AppCompatActivity() {
 
         viewModel.bind {
 
+        }
+
+        binding.favoriteButton.setOnClickListener {
+            viewModel.favoriteAction()
         }
     }
 }

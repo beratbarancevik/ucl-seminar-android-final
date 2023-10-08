@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(binding.toolbar)
         setContentView(binding.root)
 
-        val adapter = StocksAdapter(emptyList()) {
+        val adapter = StocksAdapter(this, emptyList()) {
             val myIntent = Intent(this, DetailActivity::class.java)
             myIntent.putExtra("stockID", it.id)
             this.startActivity(myIntent)

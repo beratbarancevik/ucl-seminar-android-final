@@ -56,7 +56,7 @@ class StockService(
 
     override fun updateStockDetail(stockID: String, isFavorite: Boolean) {
         db.collection("stocks").document(stockID).set(
-            mapOf("isFavorite" to isFavorite),
+            mapOf("favorite" to isFavorite),
             SetOptions.merge()
         )
     }
@@ -69,7 +69,7 @@ class StockService(
                 symbol = "TSLA",
                 price = 120.6,
                 logoUrl = "https://oceansquare.com/wp-content/uploads/2018/04/tesla-logo-500.jpg",
-                isFavorite = false
+                favorite = false
             ),
             Stock(
                 id = "id-2",
@@ -77,7 +77,7 @@ class StockService(
                 symbol = "AAPL",
                 price = 120.6,
                 logoUrl = "https://i.pinimg.com/474x/b0/d2/6e/b0d26e8122dffa8a51081f7f814581d7.jpg",
-                isFavorite = false
+                favorite = false
             ),
             Stock(
                 id = "id-3",
@@ -85,7 +85,7 @@ class StockService(
                 symbol = "META",
                 price = 120.6,
                 logoUrl = "https://img.freepik.com/premium-vector/meta-company-logo_265339-667.jpg",
-                isFavorite = false
+                favorite = false
             )
         )
         stocks.forEach {
