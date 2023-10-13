@@ -1,17 +1,17 @@
-package com.beratcevik.uclseminar.screens.detail
+package com.beratcevik.uclseminar.screens.stockdetail
 
 import com.beratcevik.uclseminar.R
 import com.beratcevik.uclseminar.service.stocks.StocksServiceI
 import com.beratcevik.uclseminar.service.stocks.models.Stock
 
-class DetailViewModel(
+class StockDetailViewModel(
     private val stockID: String,
     private val stockService: StocksServiceI
 ) {
 
     private var stock: Stock? = null
 
-    fun bind(viewStateHandler: (DetailViewState) -> Unit) {
+    fun bind(viewStateHandler: (StockDetailViewState) -> Unit) {
         stockService.getStockDetails(stockID) {
             val buttonTitle = if (it.favorite) {
                 "Remove from Favourites"
@@ -26,7 +26,7 @@ class DetailViewModel(
             }
 
             viewStateHandler.invoke(
-                DetailViewState(
+                StockDetailViewState(
                     title = it.title,
                     symbol = it.symbol,
                     price = it.price.toString(),

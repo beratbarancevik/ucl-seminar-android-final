@@ -1,6 +1,6 @@
-package com.beratcevik.uclseminar.screens.detail
+package com.beratcevik.uclseminar.screens.stockdetail
 
-data class DetailViewState(
+data class StockDetailViewState(
     val title: String,
     val symbol: String,
     val price: String,
